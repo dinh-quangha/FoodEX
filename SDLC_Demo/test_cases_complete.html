@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Test Cases - FoodX Delivery System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #00b14f, #00c3ff);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            padding: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #00b14f, #00c3ff);
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+        
+        .test-id {
+            font-weight: bold;
+            color: #00b14f;
+            text-align: center;
+        }
+        
+        .status-pass {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .status-fail {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .scenario {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .steps {
+            line-height: 1.6;
+        }
+        
+        .expected, .actual {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            th, td {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Complete Test Cases - FoodX Delivery System</h1>
+            <p>Bảng test case đầy đủ 15 case cho hệ thống đặt đồ ăn trực tuyến</p>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">Test Case ID</th>
+                        <th width="20%">Test Scenario</th>
+                        <th width="25%">Test Steps</th>
+                        <th width="20%">Expected Output</th>
+                        <th width="20%">Actual Output</th>
+                        <th width="10%">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Test Case 1: Đăng ký tài khoản thành công -->
+                    <tr>
+                        <td class="test-id">TC001</td>
+                        <td class="scenario">Đăng ký tài khoản mới thành công</td>
+                        <td class="steps">
+                            1. Truy cập trang register.php<br>
+                            2. Nhập đầy đủ thông tin: Name, Email, Phone, Address, Username, Password<br>
+                            3. Click nút "Register"<br>
+                            4. Xác nhận thông tin hợp lệ
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Đăng ký thành công! Vui lòng đăng nhập." và chuyển hướng đến trang login.php</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 2: Đăng ký với email trùng lặp -->
+                    <tr>
+                        <td class="test-id">TC002</td>
+                        <td class="scenario">Đăng ký với email đã tồn tại</td>
+                        <td class="steps">
+                            1. Truy cập trang register.php<br>
+                            2. Nhập email đã tồn tại trong hệ thống<br>
+                            3. Nhập các thông tin khác hợp lệ<br>
+                            4. Click nút "Register"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Email hoặc Username đã tồn tại!" và không tạo tài khoản mới</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 3: Đăng ký với username trùng lặp -->
+                    <tr>
+                        <td class="test-id">TC003</td>
+                        <td class="scenario">Đăng ký với username đã tồn tại</td>
+                        <td class="steps">
+                            1. Truy cập trang register.php<br>
+                            2. Nhập username đã tồn tại trong hệ thống<br>
+                            3. Nhập các thông tin khác hợp lệ<br>
+                            4. Click nút "Register"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Email hoặc Username đã tồn tại!" và không tạo tài khoản mới</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 4: Đăng ký với thông tin không đầy đủ -->
+                    <tr>
+                        <td class="test-id">TC004</td>
+                        <td class="scenario">Đăng ký với thông tin thiếu</td>
+                        <td class="steps">
+                            1. Truy cập trang register.php<br>
+                            2. Để trống một hoặc nhiều trường bắt buộc<br>
+                            3. Click nút "Register"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Vui lòng nhập đầy đủ thông tin!" và không tạo tài khoản</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 5: Đăng nhập thành công với username -->
+                    <tr>
+                        <td class="test-id">TC005</td>
+                        <td class="scenario">Đăng nhập thành công bằng username</td>
+                        <td class="steps">
+                            1. Truy cập trang login.php<br>
+                            2. Nhập username hợp lệ<br>
+                            3. Nhập password đúng<br>
+                            4. Click nút "Login"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Đăng nhập thành công!" và chuyển hướng đến trang chủ (index.php)</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 6: Đăng nhập thành công với email -->
+                    <tr>
+                        <td class="test-id">TC006</td>
+                        <td class="scenario">Đăng nhập thành công bằng email</td>
+                        <td class="steps">
+                            1. Truy cập trang login.php<br>
+                            2. Nhập email hợp lệ<br>
+                            3. Nhập password đúng<br>
+                            4. Click nút "Login"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Đăng nhập thành công!" và chuyển hướng đến trang chủ (index.php)</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 7: Đăng nhập với tài khoản admin -->
+                    <tr>
+                        <td class="test-id">TC007</td>
+                        <td class="scenario">Đăng nhập với tài khoản admin</td>
+                        <td class="steps">
+                            1. Truy cập trang login.php<br>
+                            2. Nhập thông tin admin: admin2@fruitshop.com / admin123<br>
+                            3. Click nút "Login"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Đăng nhập thành công!" và chuyển hướng đến trang admin (admin/index.php)</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 8: Đăng nhập với sai mật khẩu -->
+                    <tr>
+                        <td class="test-id">TC008</td>
+                        <td class="scenario">Đăng nhập với mật khẩu sai</td>
+                        <td class="steps">
+                            1. Truy cập trang login.php<br>
+                            2. Nhập username/email hợp lệ<br>
+                            3. Nhập password sai<br>
+                            4. Click nút "Login"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Sai mật khẩu!" và quay lại trang login</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 9: Đăng nhập với tài khoản không tồn tại -->
+                    <tr>
+                        <td class="test-id">TC009</td>
+                        <td class="scenario">Đăng nhập với tài khoản không tồn tại</td>
+                        <td class="steps">
+                            1. Truy cập trang login.php<br>
+                            2. Nhập username/email không tồn tại<br>
+                            3. Nhập password bất kỳ<br>
+                            4. Click nút "Login"
+                        </td>
+                        <td class="expected">Hiển thị thông báo "Không tìm thấy tài khoản!" và quay lại trang login</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 10: Tìm kiếm món ăn -->
+                    <tr>
+                        <td class="test-id">TC010</td>
+                        <td class="scenario">Tìm kiếm món ăn theo từ khóa</td>
+                        <td class="steps">
+                            1. Truy cập trang chủ (index.php)<br>
+                            2. Nhập từ khóa tìm kiếm vào ô search<br>
+                            3. Click nút tìm kiếm hoặc nhấn Enter
+                        </td>
+                        <td class="expected">Hiển thị danh sách món ăn có tên chứa từ khóa tìm kiếm</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 11: Thêm món ăn vào giỏ hàng -->
+                    <tr>
+                        <td class="test-id">TC011</td>
+                        <td class="scenario">Thêm món ăn vào giỏ hàng</td>
+                        <td class="steps">
+                            1. Truy cập trang chủ (index.php)<br>
+                            2. Tìm món ăn muốn mua<br>
+                            3. Click nút "Add to Cart"<br>
+                            4. Kiểm tra giỏ hàng
+                        </td>
+                        <td class="expected">Món ăn được thêm vào giỏ hàng, số lượng món trong giỏ tăng lên 1</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 12: Cập nhật số lượng trong giỏ hàng -->
+                    <tr>
+                        <td class="test-id">TC012</td>
+                        <td class="scenario">Cập nhật số lượng món ăn trong giỏ hàng</td>
+                        <td class="steps">
+                            1. Truy cập trang giỏ hàng (cart.php)<br>
+                            2. Thay đổi số lượng của một món ăn<br>
+                            3. Click nút "Update"<br>
+                            4. Kiểm tra tổng tiền
+                        </td>
+                        <td class="expected">Số lượng món ăn được cập nhật và tổng tiền được tính lại chính xác</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 13: Xóa món ăn khỏi giỏ hàng -->
+                    <tr>
+                        <td class="test-id">TC013</td>
+                        <td class="scenario">Xóa món ăn khỏi giỏ hàng</td>
+                        <td class="steps">
+                            1. Truy cập trang giỏ hàng (cart.php)<br>
+                            2. Click nút "Remove" bên cạnh món ăn muốn xóa<br>
+                            3. Xác nhận xóa
+                        </td>
+                        <td class="expected">Món ăn bị xóa khỏi giỏ hàng và tổng tiền được cập nhật</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 14: Đặt hàng thành công -->
+                    <tr>
+                        <td class="test-id">TC014</td>
+                        <td class="scenario">Đặt hàng thành công</td>
+                        <td class="steps">
+                            1. Đăng nhập vào hệ thống<br>
+                            2. Thêm món ăn vào giỏ hàng<br>
+                            3. Truy cập trang checkout<br>
+                            4. Click nút "Place Order"
+                        </td>
+                        <td class="expected">Đơn hàng được tạo thành công, giỏ hàng được làm trống, hiển thị thông báo thành công</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                    
+                    <!-- Test Case 15: Truy cập trang admin không có quyền -->
+                    <tr>
+                        <td class="test-id">TC015</td>
+                        <td class="scenario">Truy cập trang admin khi không có quyền admin</td>
+                        <td class="steps">
+                            1. Đăng nhập với tài khoản user thường<br>
+                            2. Truy cập trực tiếp URL admin/index.php<br>
+                            3. Kiểm tra quyền truy cập
+                        </td>
+                        <td class="expected">Bị chuyển hướng về trang chủ (index.php) do không có quyền admin</td>
+                        <td class="actual">Chưa test</td>
+                        <td class="status-pending">Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p><strong>FoodX Delivery System</strong> - Complete Test Cases Documentation</p>
+            <p>Tổng số test cases: 15 | Ngày tạo: <span id="current-date"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        // Hiển thị ngày hiện tại
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('vi-VN');
+    </script>
+</body>
+</html>
